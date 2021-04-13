@@ -1,0 +1,63 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
+/* Colors */
+@import "colors";
+
+/* Bootstrap variables */
+$theme-colors: (
+  "primary": $bs-primary,
+  "secondary": $bs-secondary,
+  "info": $bs-dark,
+  "success": $bs-success,
+  "warning": $bs-warning,
+  "danger": $bs-danger,
+  "dark": $bs-dark,
+  "light": $bs-light,
+);
+
+/* Text colors */
+$white: $bs-light;
+$black: $bs-dark;
+
+/* Jumbotron */
+$jumbotron-bg: $bs-light;
+$jumbotron-color: $bs-dark;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+/* Custom CSS */
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  min-height: 100%;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.container-page-centered {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-control,
+.form-control:focus {
+  background-color: $form-field;
+}
+
+.form-error-message {
+  color: $bs-danger;
+  padding: 0.5em 0.2em;
+  height: 1em;
+  position: absolute;
+  font-size: 0.8em;
+}

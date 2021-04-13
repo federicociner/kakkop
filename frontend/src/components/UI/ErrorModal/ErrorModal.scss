@@ -1,0 +1,32 @@
+@import "../../../scss/main";
+
+.error-modal .close {
+  color: white;
+  margin: 0;
+  opacity: 0.5;
+  padding: 0;
+  position: absolute;
+  right: 1em;
+  top: 0.5em;
+}
+
+.error-modal .close:hover {
+  color: white;
+  opacity: 0.8;
+}
+
+.error-modal .modal-content {
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+}
+
+.error-modal .modal-header {
+  color: white;
+  justify-content: center;
+  background: $bs-danger;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  padding-bottom: 25px;
+  position: relative;
+}

@@ -1,0 +1,17 @@
+@import "../../../scss/main.scss";
+
+.dots {
+  position: relative;
+  display: inline-block;
+  justify-items: center;
+  align-items: center;
+  width: 20px;
+  margin-left: -10px;
+  height: 20px;
+  background-image: radial-gradient(circle, $bs-dark 1.8px, transparent 2.5px);
+  background-size: 100% 33.33%;
+}
+
+.draggable-list-item {
+  margin: 10px;
+}

@@ -1,0 +1,1 @@
+export {gameOptions} from "./common";
