@@ -1,10 +1,15 @@
 import logging
-from django.core.management.base import BaseCommand
+from random import randint
+
 from django.contrib.auth import get_user_model
+from django.core.management.base import BaseCommand
+from faker import Faker
 
 LOGGER = logging.getLogger(__file__)
 
 User = get_user_model()
+fake = Faker()
+Faker.seed(randint(0, 99999))
 
 
 class Command(BaseCommand):
@@ -12,38 +17,28 @@ class Command(BaseCommand):
     help = "Create a set of pre-defined users for testing."
 
     def _create_users(self):
-        User.objects.create_superuser(
-            email="admin@test.com",
-            first_name="Jiminy",
-            last_name="Cricket",
-            password="password123",
-        )
+        superuser, created = User.objects.get_or_create(email="admin@test.com",)
+
+        if not created:
+            superuser.first_name = fake.first_name()
+            superuser.last_name = fake.last_name()
+            superuser.set_password("password123")
+            superuser.is_staff = True
+            superuser.is_superuser = True
+            superuser.save()
 
         users = [
-            {
-                "email": "user1@test.com",
-                "first_name": "McDonald",
-                "last_name": "Trump",
-                "password": "testing123",
-            },
-            {
-                "email": "user2@test.com",
-                "first_name": "Bear",
-                "last_name": "Grylls",
-                "password": "testing1234",
-            },
-            {
-                "email": "user3@test.com",
-                "first_name": "Bob",
-                "last_name": "The Burger",
-                "password": "testing12345",
-            },
+            {"email": "user1@test.com", "password": "testing123"},
+            {"email": "user2@test.com", "password": "testing1234"},
+            {"email": "user3@test.com", "password": "testing12345"},
         ]
 
         for user in users:
-            User.objects.create_user(
-                user["email"], user["first_name"], user["last_name"], user["password"]
-            )
+            u, _ = User.objects.get_or_create(email=user.get("email"))
+            u.first_name = fake.first_name()
+            u.last_name = fake.last_name()
+            u.set_password(user.get("password"))
+            u.save()
 
         LOGGER.info("Successfully created test users.")
 

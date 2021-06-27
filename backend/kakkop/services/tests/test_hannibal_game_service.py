@@ -1,6 +1,5 @@
 from django.core.exceptions import ValidationError
 from django.test import TestCase
-
 from users.models import BaseUser
 
 from ... import constants
@@ -19,16 +18,8 @@ class HannibalGameServiceTest(TestCase):
                 "first_name": "Stevie Ray",
                 "last_name": "Vaughn",
             },
-            {
-                "email": "user2@bar.com",
-                "first_name": "Jimi",
-                "last_name": "Hendrix",
-            },
-            {
-                "email": "user3@bar.com",
-                "first_name": "Jimmy",
-                "last_name": "Page",
-            },
+            {"email": "user2@bar.com", "first_name": "Jimi", "last_name": "Hendrix",},
+            {"email": "user3@bar.com", "first_name": "Jimmy", "last_name": "Page",},
         ]
 
         for user_data in users:
@@ -61,9 +52,7 @@ class HannibalGameServiceTest(TestCase):
     def test_correct_cards_dealt_per_round(self):
         max_hand_size = 13
         number_of_rounds = 25
-        cards = self.service.get_cards_per_round(
-            max_hand_size, number_of_rounds
-        )
+        cards = self.service.get_cards_per_round(max_hand_size, number_of_rounds)
 
         self.assertEqual(len(cards), 25)
         self.assertEqual(cards[0], 2)

@@ -1,5 +1,4 @@
 from graphene_django import DjangoObjectType
-
 from users.models import BaseUser as User
 
 

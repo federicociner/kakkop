@@ -4,7 +4,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 from graphene_django.views import GraphQLView
 from rest_framework.schemas import get_schema_view
-
 from users.views import LoginView, RegisterView
 
 API_TITLE = "Kakkop API"

@@ -1,6 +1,5 @@
-from django.db import models
-
 from common.mixins import CreateModifyDateMixin
+from django.db import models
 from users.models import BaseUser as User
 
 

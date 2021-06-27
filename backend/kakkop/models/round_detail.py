@@ -1,6 +1,5 @@
-from django.db import models
-
 from common.mixins import CreateModifyDateMixin
+from django.db import models
 
 from kakkop.models.player import Player
 from kakkop.models.round import Round

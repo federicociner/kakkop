@@ -1,11 +1,11 @@
 import logging
+
 from dj_rest_auth.registration.views import RegisterView
 from dj_rest_auth.views import LoginView
 from django.contrib.auth.models import update_last_login
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.settings import api_settings
-
 from users.models import BaseUser
 from users.serializers import UserSerializer
 

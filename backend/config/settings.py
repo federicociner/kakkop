@@ -1,6 +1,7 @@
 import os
 from datetime import timedelta
 from pathlib import Path
+from typing import List
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -13,7 +14,7 @@ SECRET_KEY = "h$yf2=(n9)$r+08z+!(eu^6*@390c*8zhi-!#wti_xxjr*##gq"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: List[str] = []
 
 # Application definition
 DJANGO_CORE_APPS = [
@@ -107,18 +108,18 @@ if pg_hostname:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": os.environ.get("POSTGRES_DB_NAME"),
-            "USER": os.environ.get("POSTGRES_DB_USER"),
-            "PASSWORD": os.environ.get("POSTGRES_DB_PASSWORD"),
+            "NAME": os.environ.get("POSTGRES_NAME"),
+            "USER": os.environ.get("POSTGRES_USER"),
+            "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
             "HOST": pg_hostname,
-            "PORT": os.environ.get("POSTGRES_DB_PORT"),
+            "PORT": os.environ.get("POSTGRES_PORT"),
         }
     }
 else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",  # type: ignore
         }
     }
 

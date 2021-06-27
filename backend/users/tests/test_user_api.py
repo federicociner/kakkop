@@ -50,6 +50,5 @@ class UserTests(APITestCase):
             response.data["refresh_token"].keys(), ["expiration", "value"]
         )
         self.assertCountEqual(
-            response.data["user"].keys(),
-            ["id", "email", "first_name", "last_name"],
+            response.data["user"].keys(), ["id", "email", "first_name", "last_name"],
         )

@@ -1,0 +1,12 @@
+FROM python:3.9
+
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+COPY backend/requirements.txt /app/
+COPY tools/wait-for-it.sh /usr/local/bin/
+
+RUN pip install -r requirements.txt
+
+COPY backend/ /app/
