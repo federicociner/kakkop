@@ -6,7 +6,7 @@ from kakkop.models.game import Game
 
 
 class Player(CreateModifyDateMixin):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="players")
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="players")
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="players")
     position = models.IntegerField()
     is_first_dealer = models.BooleanField()

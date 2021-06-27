@@ -4,7 +4,7 @@ from users.models import BaseUser as User
 
 
 class Game(CreateModifyDateMixin):
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="games")
+    creator = models.ForeignKey(User, on_delete=models.PROTECT, related_name="games")
     status = models.CharField(
         choices=[("in_progress", "In progress"), ("completed", "Completed")],
         default="in_progress",
