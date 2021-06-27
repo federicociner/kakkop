@@ -15,3 +15,5 @@ Game and card scoring application, built with React, GraphQL and Django.
 Run `make run` in the root directory to spin up a local instance of Kakkop. This will build the Postgres, Django, and React Docker images, if necessary, and then spin up a self-contained application use Docker Compose.
 
 You can access the frontend of the application on your local machine at `http://localhost:3000`.
+
+To stop the current local instance of Kakkop, run `make stop` in the root directory.
